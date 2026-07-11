@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vacances Estiu 2026 · Guia de Ruta Familiar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#142A33; --bg:#F0F6F6; --card:#FFFFFF;
+  --teal:#0E7C86; --deep:#0B3C49; --sun:#F4A825; --bball:#E8622C;
+  --line:#D5E3E4; --muted:#5B7278;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+.wrap{max-width:960px;margin:0 auto;padding:0 18px 80px}
+header{background:var(--deep);color:#fff;padding:44px 18px 0;text-align:center}
+header .kicker{letter-spacing:.22em;text-transform:uppercase;font-size:.72rem;color:var(--sun);font-weight:600}
+header h1{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(1.9rem,5vw,3.2rem);margin:10px 0 6px}
+header p.sub{color:#BFD8DC;font-size:.95rem;max-width:640px;margin:0 auto 8px}
+.crew{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:16px 0 26px}
+.crew span{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);padding:4px 12px;border-radius:99px;font-size:.8rem}
+.mapbox{background:var(--deep);padding:0 8px 40px}
+.mapbox svg{width:100%;max-width:960px;height:auto;display:block;margin:0 auto}
+.route-line{fill:none;stroke:var(--sun);stroke-width:2.4;stroke-dasharray:7 6;animation:dash 40s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-1000}}
+@media (prefers-reduced-motion:reduce){.route-line{animation:none}}
+.stop-dot{fill:#fff;stroke:var(--sun);stroke-width:2.5}
+.stop-dot.home{fill:var(--sun)}
+.map-label{font-family:'Outfit',sans-serif;font-size:12.5px;fill:#EAF4F5;font-weight:600}
+.map-sub{font-size:9.5px;fill:#8FB4BA;font-weight:400}
+.map-n{font-size:9px;fill:var(--deep);font-weight:700}
+h2.sect{font-family:'Fraunces',serif;font-weight:900;font-size:1.7rem;margin:52px 0 6px}
+p.sect-sub{color:var(--muted);margin-bottom:20px;font-size:.95rem}
+.urgent{background:#FFF6E4;border:2px solid var(--sun);border-radius:16px;padding:22px 22px 14px;margin-top:32px}
+.urgent h3{font-family:'Fraunces',serif;font-size:1.25rem;margin-bottom:4px}
+.urgent p.note{font-size:.88rem;color:#7A5A12;margin-bottom:14px}
+.check{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-top:1px dashed #E8CE93}
+.check .box{min-width:22px;height:22px;border:2px solid var(--sun);border-radius:6px;margin-top:2px}
+.check b{display:block}
+.check small{color:#7A5A12}
+.check a{color:var(--teal);font-weight:600}
+table.resumen{width:100%;border-collapse:collapse;background:var(--card);border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(11,60,73,.07);font-size:.86rem}
+table.resumen th{background:var(--deep);color:#fff;text-align:left;padding:10px 12px;font-weight:600}
+table.resumen td{padding:9px 12px;border-top:1px solid var(--line)}
+table.resumen tr:nth-child(even) td{background:#F7FBFB}
+table.resumen .long td{background:#FDEFE9}
+.tbl-scroll{overflow-x:auto;border-radius:14px}
+.stage{background:var(--card);border-radius:18px;box-shadow:0 2px 12px rgba(11,60,73,.08);margin:26px 0;overflow:hidden}
+.stage-head{padding:20px 24px 14px;border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.stage-head .num{font-family:'Fraunces',serif;font-weight:900;color:var(--teal);font-size:.9rem;letter-spacing:.12em;text-transform:uppercase}
+.stage-head h3{font-family:'Fraunces',serif;font-size:1.45rem;font-weight:900;width:100%}
+.stage-head .dates{color:var(--muted);font-size:.85rem}
+.stage.bball .stage-head{border-top:5px solid var(--bball)}
+.stage-body{padding:18px 24px 24px}
+.photos{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px;padding:14px 24px 0}
+.photos figure{margin:0;border-radius:10px;overflow:hidden;background:#E4EEEF}
+.photos img{width:100%;height:130px;object-fit:cover;display:block}
+.photos figcaption{font-size:.68rem;color:var(--muted);padding:4px 8px 6px;line-height:1.3}
+.hotel{background:#F2F8F8;border-left:4px solid var(--teal);border-radius:0 10px 10px 0;padding:12px 16px;font-size:.86rem;margin-bottom:16px}
+.hotel b{color:var(--deep)}
+.drive{display:flex;flex-wrap:wrap;gap:10px;align-items:center;background:var(--deep);color:#fff;border-radius:12px;padding:12px 16px;font-size:.86rem;margin-bottom:18px}
+.drive .km{font-family:'Fraunces',serif;font-weight:900;font-size:1.05rem;color:var(--sun)}
+.drive a{margin-left:auto;background:var(--sun);color:var(--deep);text-decoration:none;font-weight:700;padding:7px 14px;border-radius:99px;font-size:.8rem;white-space:nowrap}
+.drive a:hover{filter:brightness(1.08)}
+.day{margin:18px 0 6px}
+.day h4{font-size:1.02rem;font-weight:700;color:var(--deep);display:flex;align-items:center;gap:8px}
+.day h4 .pill{background:var(--teal);color:#fff;font-size:.68rem;font-weight:600;padding:3px 10px;border-radius:99px;letter-spacing:.05em}
+.tl{list-style:none;margin:10px 0 0 6px;border-left:2px solid var(--line);padding-left:18px}
+.tl li{margin-bottom:12px;position:relative;font-size:.92rem}
+.tl li::before{content:"";position:absolute;left:-24px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--teal)}
+.tl li b.hr{color:var(--teal);font-weight:700;margin-right:4px}
+.tl li .tip{display:block;font-size:.82rem;color:var(--muted);margin-top:2px}
+.stage.bball .tl li::before{background:var(--bball)}
+.stage.bball .day h4 .pill{background:var(--bball)}
+.stage.bball .tl li b.hr{color:var(--bball)}
+.ticket{display:inline-flex;gap:6px;align-items:center;background:#FFF3E8;border:1px solid #F2C9A8;border-radius:8px;padding:2px 9px;font-size:.78rem;font-weight:600;color:#9A4A12;margin:3px 4px 0 0;text-decoration:none}
+.ticket:hover{background:#FFE9D6}
+.free{background:#E8F6EE;border-color:#B9E0C8;color:#1B6B3C}
+.warn{display:block;background:#FDEFE9;border-left:4px solid var(--bball);border-radius:0 8px 8px 0;padding:8px 12px;font-size:.82rem;margin-top:8px;color:#8A3B17}
+.budget{background:var(--card);border-radius:16px;padding:22px;box-shadow:0 2px 10px rgba(11,60,73,.07);font-size:.88rem}
+.budget table{width:100%;border-collapse:collapse}
+.budget td{padding:7px 4px;border-bottom:1px dashed var(--line)}
+.budget td:last-child{text-align:right;font-weight:600;white-space:nowrap}
+.budget tr.total td{border-bottom:none;border-top:2px solid var(--deep);font-family:'Fraunces',serif;font-weight:900;font-size:1rem}
+footer{text-align:center;color:var(--muted);font-size:.78rem;margin-top:60px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="kicker">19 juliol – 12 agost 2026 · 25 dies · 7 països · ~4.100 km</div>
+  <h1>La Gran Ruta de l'Estiu</h1>
+  <p class="sub">Barcelona → Alps → Adriàtic → Belgrad → Praga → Europa-Park → Berna. Guia dia a dia amb horaris, entrades, preus i navegació.</p>
+  <div class="crew"><span>David · 49</span><span>Cristina · 49</span><span>Aina · 14</span><span>Pol · 12</span><span>Júlia · 8 🏀</span></div>
+</header>
+
+<div class="mapbox">
+<svg viewBox="0 0 960 430" role="img" aria-label="Mapa esquemàtic de la ruta">
+  <path class="route-line" d="M 90 360 C 140 300, 180 290, 230 300 C 300 315, 340 330, 400 320 C 470 308, 500 250, 540 210 C 560 190, 575 150, 600 135 C 630 117, 660 150, 665 190 C 672 235, 690 290, 730 310 C 790 338, 860 330, 880 300"/>
+  <path class="route-line" d="M 880 300 C 850 250, 800 230, 760 200 C 700 155, 640 90, 560 80 C 480 70, 420 65, 380 100 C 340 135, 300 160, 260 200 C 200 260, 130 320, 90 360" opacity=".85"/>
+  <g>
+    <circle class="stop-dot home" cx="90" cy="360" r="9"/><text class="map-label" x="60" y="392">BARCELONA</text><text class="map-sub" x="66" y="406">sortida 19 jul · tornada 12 ago</text>
+    <circle class="stop-dot" cx="230" cy="300" r="8"/><text class="map-n" x="227" y="304">1</text>
+    <text class="map-label" x="196" y="285">Montpeller</text><text class="map-sub" x="200" y="298">19 jul · 1 nit</text>
+    <circle class="stop-dot" cx="400" cy="320" r="8"/><text class="map-n" x="397" y="324">2</text>
+    <text class="map-label" x="372" y="348">Bèrgam</text><text class="map-sub" x="368" y="361">20 jul · 1 nit</text>
+    <circle class="stop-dot" cx="540" cy="210" r="8"/><text class="map-n" x="537" y="214">3</text>
+    <text class="map-label" x="500" y="196">Ljubljana</text><text class="map-sub" x="505" y="209">21–23 jul · 2 nits</text>
+    <circle class="stop-dot" cx="600" cy="135" r="8"/><text class="map-n" x="597" y="139">4</text>
+    <text class="map-label" x="617" y="132">Bled</text><text class="map-sub" x="617" y="145">23–26 jul · 3 nits</text>
+    <circle class="stop-dot" cx="665" cy="190" r="8"/><text class="map-n" x="662" y="194">5</text>
+    <text class="map-label" x="682" y="188">Plitvice</text><text class="map-sub" x="682" y="201">26–28 jul · 2 nits</text>
+    <circle class="stop-dot" cx="730" cy="310" r="8"/><text class="map-n" x="727" y="314">6</text>
+    <text class="map-label" x="700" y="340">Zadar</text><text class="map-sub" x="680" y="353">28 jul–1 ago · 4 nits ★</text>
+    <circle class="stop-dot" cx="880" cy="300" r="8"/><text class="map-n" x="877" y="304">7</text>
+    <text class="map-label" x="852" y="332">BELGRAD 🏀</text><text class="map-sub" x="862" y="345">1–3 ago · 2 nits</text>
+    <circle class="stop-dot" cx="760" cy="200" r="8"/><text class="map-n" x="757" y="204">8</text>
+    <text class="map-label" x="777" y="198">Zagreb</text><text class="map-sub" x="777" y="211">3–4 ago · 1 nit</text>
+    <circle class="stop-dot" cx="560" cy="80" r="8"/><text class="map-n" x="557" y="84">9</text>
+    <text class="map-label" x="533" y="64">Praga</text><text class="map-sub" x="516" y="50">4–7 ago · 3 nits</text>
+    <circle class="stop-dot" cx="380" cy="100" r="8"/><text class="map-n" x="374" y="104">10</text>
+    <text class="map-label" x="320" y="88">Europa-Park</text><text class="map-sub" x="330" y="74">7–10 ago · 3 nits</text>
+    <circle class="stop-dot" cx="260" cy="200" r="8"/><text class="map-n" x="254" y="204">11</text>
+    <text class="map-label" x="200" y="196">Berna 🌊</text><text class="map-sub" x="186" y="209">10–12 ago · 2 nits</text>
+  </g>
+</svg>
+</div>
+
+<div class="wrap">
+
+<div class="urgent">
+  <h3>⚡ Estat de les reserves</h3>
+  <p class="note">✅ Tots els hotels reservats i pagats. ✅ Plitvice comprat. Queden aquestes entrades amb franja horària — ordre de prioritat:</p>
+
+  <div class="check"><div class="box" style="background:var(--teal);border-color:var(--teal);color:#fff;text-align:center;line-height:19px;font-weight:700">✓</div><div><b style="color:#1B6B3C">Plitvice — FET ✓</b><small>Booking ID <b>32653490</b> · dl 27 jul, 09:00, <b>Entrada Nord</b> · 2 adults + 3 nens · a nom de Cristina Pitart Ferre · inclou tren i vaixell. Porteu la confirmació al mòbil.</small></div></div>
+  <div class="check"><div class="box" style="background:var(--teal);border-color:var(--teal);color:#fff;text-align:center;line-height:19px;font-weight:700">✓</div><div><b style="color:#1B6B3C">Hotels — FET ✓</b><small>Les 24 nits reservades i pagades, inclosa la primera al Citadines Antigone Montpeller.</small></div></div>
+  <div class="check"><div class="box"></div><div><b>1 · Postojna + Predjama — dimecres 22 jul, tour 10:00</b><small>Franja horària obligatòria per a la cova; a l'estiu s'omplen. Combo oficial: <a href="https://www.postojnska-jama.eu/en/tickets/">postojnska-jama.eu</a>.</small></div></div>
+  <div class="check"><div class="box"></div><div><b>2 · Vintgar Gorge — dissabte 25 jul, franja 08:00</b><small>Entrada amb franja horària i ruta de sentit únic. Web oficial: <a href="https://vintgar.si/en/">vintgar.si</a>.</small></div></div>
+  <div class="check"><div class="box"></div><div><b>3 · Museu Nikola Tesla — diumenge 2 ago</b><small>Cues d'hores sense entrada anticipada; tours guiats en anglès cada hora. <a href="https://tesla-museum.org/en/visit/plan-your-visit/">tesla-museum.org</a>.</small></div></div>
+  <div class="check"><div class="box"></div><div><b>4 · Castell de Praga — dimecres 5 ago</b><small>Circuit bàsic online per saltar-vos la cua de taquilla: <a href="https://www.hrad.cz/en/prague-castle-for-visitors/tickets">hrad.cz</a>.</small></div></div>
+  <div class="check"><div class="box"></div><div><b>5 · Instal·lar les 2 eSIM (Sèrbia i Suïssa) — abans del 19, amb WiFi a casa</b><small>Instal·lar NO és activar: instal·leu-les ara al mòbil (cal bona connexió), però no activeu el pla fins a creuar cada frontera. No les esborreu mai un cop instal·lades. Detall complet a la secció "Cobertura mòbil i eSIM".</small></div></div>
+  <div class="check"><div class="box"></div><div><b>6 · (Opcional) Krka — divendres 31 jul</b><small>Si us decidiu per l'excursió: <a href="https://www.npkrka.hr/en_US/">npkrka.hr</a>. Després de les 15:00 l'entrada baixa a 30 €/adult.</small></div></div>
+</div>
+
+<h2 class="sect">Resum d'etapes</h2>
+<p class="sect-sub">Les files taronges són els 4 dies de conducció exigent: sortir aviat i sense pla turístic aquell dia.</p>
+<div class="tbl-scroll">
+<table class="resumen">
+<tr><th>Data</th><th>Etapa</th><th>Cotxe</th><th>Hotel</th><th>City tax / Pàrquing</th></tr>
+<tr><td>Dg 19</td><td>Barcelona → Montpeller</td><td>~330 km · 3h15</td><td>Citadines Antigone</td><td>—</td></tr>
+<tr class="long"><td>Dl 20</td><td>Montpeller → Bèrgam</td><td>~730 km · 7h ⚠️</td><td>Excelsior San Marco</td><td>5 €/adult/nit · P de pagament</td></tr>
+<tr><td>Dt 21</td><td>Bèrgam → Ljubljana</td><td>~490 km · 4h45</td><td>Occidental Ljubljana</td><td>tax incl. · P 35 €/dia</td></tr>
+<tr><td>Dj 23</td><td>Ljubljana → Bled</td><td>~55 km · 45 min</td><td>Rikli Balance</td><td>tax incl. · P de pagament</td></tr>
+<tr><td>Dg 26</td><td>Bled → Plitvice</td><td>~215 km · 3h</td><td>Ethno Houses Plitvica Selo</td><td>tax i P inclosos</td></tr>
+<tr><td>Dt 28</td><td>Plitvice → Zadar</td><td>~140 km · 2h</td><td>Falkensteiner Diadora ★</td><td>1,50 €/ad · P 13 €/dia</td></tr>
+<tr class="long"><td>Ds 1</td><td>Zadar → Belgrad</td><td>~500 km · 6-7h ⚠️</td><td>Radisson RED</td><td>tax incl. · P 15 €/dia</td></tr>
+<tr><td>Dl 3</td><td>Belgrad → Zagreb</td><td>~390 km · 4h</td><td>Esplanade Zagreb</td><td>tax incl. · P 30 €/dia</td></tr>
+<tr class="long"><td>Dt 4</td><td>Zagreb → Praga</td><td>~600 km · 6h ⚠️</td><td>Innside Old Town</td><td>P 35 €/dia</td></tr>
+<tr><td>Dv 7</td><td>Praga → Rust</td><td>~500 km · 5h</td><td>Krønasår (Europa-Park)</td><td>tax i P inclosos</td></tr>
+<tr><td>Dl 10</td><td>Rust → Berna</td><td>~230 km · 2h30</td><td>Holiday Inn Westside</td><td>6,30 CHF/ad · P 19 CHF*</td></tr>
+<tr class="long"><td>Dc 12</td><td>Berna → Barcelona</td><td>~900 km · 9h ⚠️</td><td>—</td><td>—</td></tr>
+</table>
+</div>
+
+<!-- ETAPA 1 -->
+<div class="stage">
+  <div class="stage-head">
+    <span class="num">Etapa 1 · Montpeller</span><span class="dates">Diumenge 19 juliol · 1 nit</span>
+    <h3>Nit d'enllaç a l'Écusson</h3>
+  </div>
+<div class="photos"><figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Montpellier_fg02.jpg/960px-Montpellier_fg02.jpg" alt="Montpeller · Place de la Comédie" loading="lazy"><figcaption>Montpeller · Place de la Comédie</figcaption></figure></div>
+  <div class="stage-body">
+    <div class="hotel"><b>Citadines Antigone Montpeller</b> · 588 Boulevard d'Antigone · Aparthotel amb cuina a l'habitació — perfecte per esmorzar fort dilluns abans de l'etapa llarga · A 10-12 min a peu de l'Écusson i la Place de la Comédie · ✓ Reservat i pagat · ⚠️ Pàrquing: no consta al document de reserves — confirmeu-ho amb l'hotel</div>
+    <div class="drive"><span>🚗 Barcelona → Montpeller</span><span class="km">~330 km · 3h15</span><a href="https://www.google.com/maps/dir/?api=1&origin=Barcelona&destination=Citadines+Antigone+Montpellier" target="_blank">Obrir a Maps ›</a></div>
+    <ul class="tl">
+      <li><b class="hr">10:00</b> Sortida de Barcelona amb calma (peatges AP-7/A9, ~25-30 € el tram).</li>
+      <li><b class="hr">13:30</b> Check-in / deixar maletes i passeig per l'<b>Écusson</b>, el nucli històric per a vianants.</li>
+      <li><b class="hr">17:00</b> <b>Place de la Comédie</b> — la gran plaça-saló: gelat per als petits mentre vosaltres feu alguna cosa en una terrassa. <span class="tip">A 5 min: Arc de Triomphe i la Promenade du Peyrou amb vistes a l'aqüeducte — perfecte al capvespre.</span></li>
+      <li><b class="hr">20:00</b> Sopar d'hora a l'Écusson i a dormir: demà és l'etapa més llarga del viatge.</li>
+    </ul>
+    <span class="ticket free">✓ Dia sense entrades — tot gratuït</span>
+  </div>
+</div>
+
+<!-- ETAPA 2 -->
+<div class="stage">
+  <div class="stage-head">
+    <span class="num">Etapa 2 · Bèrgam</span><span class="dates">Dilluns 20 juliol · 1 nit · Excelsior San Marco</span>
+    <h3>Capvespre a la Città Alta</h3>
+  </div>
+<div class="photos"><figure><img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Menton_february_13.jpg" alt="Menton, parada per dinar" loading="lazy"><figcaption>Menton, parada per dinar</figcaption></figure><figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/The_Upper_City_of_Bergamo._View_from_Via_al_Castello._Italy.jpg/960px-The_Upper_City_of_Bergamo._View_from_Via_al_Castello._Italy.jpg" alt="Bèrgam · Città Alta" loading="lazy"><figcaption>Bèrgam · Città Alta</figcaption></figure></div>
+  <div class="stage-body">
+    <div class="hotel"><b>Hotel Excelsior San Marco</b> · Piazzale Repubblica 6 · Check-in 15:00 / out 11:30 · Res. S202605130029 · ☎ +39 035 366 111</div>
+    <div class="drive"><span>🚗 Montpeller → Bèrgam</span><span class="km">~730 km · 7h ⚠️</span><a href="https://www.google.com/maps/dir/?api=1&origin=Montpellier&destination=Piazzale+Repubblica+6,+Bergamo" target="_blank">Obrir a Maps ›</a></div>
+    <ul class="tl">
+      <li><b class="hr">08:00</b> Sortida d'hora per l'A9/A8. Aprofiteu la cuina del Citadines per esmorzar fort.</li>
+      <li><b class="hr">11:45</b> ⛱️ <b>Parada per dinar a Menton</b> (sortida 59 de l'A8, l'últim poble francès abans d'Itàlia): nucli antic de façanes pastel, passeig marítim i bany ràpid a la platja de Sablettes — infinitament millor que una àrea de servei. 1h45 de parada. <a class="ticket" href="https://www.google.com/maps/search/?api=1&query=Plage+des+Sablettes+Menton" target="_blank">📍 Platja Sablettes</a></li>
+      <li><b class="hr">13:30</b> Reprendre: queden ~3h15 (Gènova – Milà – Bèrgam).</li>
+      <li><b class="hr">17:00</b> Arribada i check-in. Descans curt.</li>
+      <li><b class="hr">18:00</b> <b>Funicular a la Città Alta</b> (surt a 10 min a peu de l'hotel). <span class="tip">Bitllet ATB ordinari ~1,70 €/persona per trajecte; es compra a màquina o app ATB Mobile.</span></li>
+      <li><b class="hr">18:30</b> <b>Piazza Vecchia</b> i Piazza del Duomo: Capella Colleoni i Basílica de Santa Maria Maggiore (entrada lliure).</li>
+      <li><b class="hr">19:45</b> Passeig per les <b>muralles venecianes</b> (UNESCO) amb la llum daurada — la millor foto del dia.</li>
+      <li><b class="hr">20:30</b> Sopar a la Città Alta: pizza + el gelat de la Marianna, on es va inventar el sabor <i>stracciatella</i>.</li>
+    </ul>
+    <span class="ticket free">✓ Només funicular (~12 € família a/t) — la resta gratuït</span>
+  </div>
+</div>
+
+<!-- ETAPA 3 -->
+<div class="stage">
+  <div class="stage-head">
+    <span class="num">Etapa 3 · Ljubljana</span><span class="dates">Dimarts 21 – Dijous 23 juliol · 2 nits · Occidental Ljubljana</span>
+    <h3>Dracs, castell i coves</h3>
+  </div>
+<div class="photos"><figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Arena-XE3F2406a.jpg/960px-Arena-XE3F2406a.jpg" alt="Verona · l'Arena" loading="lazy"><figcaption>Verona · l'Arena</figcaption></figure><figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Dragons_Bridge%2C_Ljubljana_2.jpg/960px-Dragons_Bridge%2C_Ljubljana_2.jpg" alt="Ljubljana · Pont del Drac" loading="lazy"><figcaption>Ljubljana · Pont del Drac</figcaption></figure><figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Postojna_%2822206343750%29.jpg/960px-Postojna_%2822206343750%29.jpg" alt="Cova de Postojna" loading="lazy"><figcaption>Cova de Postojna</figcaption></figure><figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/H%C3%B6hlenburg_Predjama_in_Slovenien.jpg/960px-H%C3%B6hlenburg_Predjama_in_Slovenien.jpg" alt="Castell de Predjama" loading="lazy"><figcaption>Castell de Predjama</figcaption></figure></div>
+  <div class="stage-body">
+    <div class="hotel"><b>Occidental Ljubljana</b> · Slovenska cesta 16 · Check-in 15:00 / out 12:00 · Conf. 55889915 · Pàrquing 35 €/dia · ☎ +386 597 57330<br>⚠️ Vinyeta eslovena obligatòria per a l'autopista: e-vinyeta 7 dies ~16 €, es compra online a <a href="https://evinjeta.dars.si/en">evinjeta.dars.si</a> abans de creuar la frontera.</div>
+    <div class="drive"><span>🚗 Bèrgam → Ljubljana</span><span class="km">~490 km · 4h45</span><a href="https://www.google.com/maps/dir/?api=1&origin=Bergamo&destination=Slovenska+cesta+16,+Ljubljana" target="_blank">Obrir a Maps ›</a></div>
+
+    <div class="day"><h4><span class="pill">DT 21</span> Verona de camí + arribada</h4>
+    <ul class="tl">
+      <li><b class="hr">09:30</b> Sortida de Bèrgam.</li>
+      <li><b class="hr">10:45</b> 🏛️ <b>Parada a Verona</b> (2h): l'Arena romana per fora, foto al balcó de la <b>casa de Julieta</b> i dinar d'hora a la Piazza delle Erbe. Pàrquing Arena/Cittadella i tot a peu. <a class="ticket" href="https://www.google.com/maps/search/?api=1&query=Parcheggio+Arena+Verona" target="_blank">📍 Pàrquing Arena</a></li>
+      <li><b class="hr">13:00</b> Ruta cap a Eslovènia. Parada tècnica opcional a <b>Palmanova</b> (a peu d'autopista): cafè a la plaça de la ciutat-fortalesa amb forma d'estrella perfecta.</li>
+      <li><b class="hr">17:00</b> Check-in i passeig pel riu Ljubljanica: <b>Triple Pont → mercat central → Pont del Drac</b> (foto obligada amb els 4 dracs).</li>
+      <li><b class="hr">18:30</b> <b>Funicular + Castell de Ljubljana</b>: torre-mirador, museu interactiu i vistes als Alps. <span class="tip">Bitllet combinat funicular + castell, amb tarifa familiar disponible; obert fins a les 20:00 a l'estiu.</span>
+      <a class="ticket" href="https://www.ljubljanskigrad.si/en/tickets/" target="_blank">🎟 Entrades · ljubljanskigrad.si</a></li>
+      <li><b class="hr">20:15</b> Sopar en terrassa vora el riu (zona Cankarjevo nabrežje).</li>
+    </ul></div>
+
+    <div class="day"><h4><span class="pill">DC 22</span> Excursió: Postojna + Predjama (1h de cotxe)</h4>
+    <ul class="tl">
+      <li><b class="hr">08:45</b> Sortida cap a Postojna. <a class="ticket" href="https://www.google.com/maps/dir/?api=1&origin=Ljubljana&destination=Postojnska+jama" target="_blank">📍 Ruta</a></li>
+      <li><b class="hr">10:00</b> <b>Cova de Postojna</b> — tren subterrani + recorregut a peu (1h30). Sigueu-hi 30 min abans. <span class="tip">A dins hi fa 10 °C tot l'any: porteu una jaqueta per persona. Pàrquing 6 €/dia.</span>
+      <a class="ticket" href="https://www.postojnska-jama.eu/en/tickets/two-adventures/" target="_blank">🎟 Combo cova+castell ≈ 46,50 €/adult · nens 6-15 ≈ 25 €</a></li>
+      <li><b class="hr">12:00</b> Vivarium (inclòs en alguns combos): els <i>proteus</i>, les famoses "cries de drac" de la cova.</li>
+      <li><b class="hr">13:00</b> Dinar al complex o pícnic.</li>
+      <li><b class="hr">14:30</b> <b>Castell de Predjama</b> — el castell-cova rècord Guinness, a 9 km (shuttle gratuït a l'estiu o 10 min en cotxe). Audioguia per app inclosa; la llegenda del cavaller Erazem encantarà en Pol i la Júlia.</li>
+      <li><b class="hr">17:30</b> Tornada a Ljubljana; tarda lliure i sopar.</li>
+    </ul></div>
+
+    <div class="day"><h4><span class="pill">DJ 23</span> Matí lliure i sortida cap a Bled</h4>
+    <ul class="tl">
+      <li><b class="hr">09:30</b> Esmorzar llarg + mercat central; souvenir de drac per a la Júlia.</li>
+      <li><b class="hr">12:00</b> Check-out i sortida cap a Bled (45 min).</li>
+    </ul></div>
+  </div>
+</div>
+
+<!-- ETAPA 4 -->
+<div class="stage">
+  <div class="stage-head">
+    <span class="num">Etapa 4 · Bled</span><span class="dates">Dijous 23 – Diumenge 26 juliol · 3 nits · Rikli Balance Hotel</span>
+    <h3>El llac de postal (i el seu pastís)</h3>
+  </div>
+<div class="photos"><figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Lake_Bled_from_the_Mountain.jpg/960px-Lake_Bled_from_the_Mountain.jpg" alt="Llac de Bled i la seva illa" loading="lazy"><figcaption>Llac de Bled i la seva illa</figcaption></figure><figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/The_Great_Bled_Castle.jpg/960px-The_Great_Bled_Castle.jpg" alt="Castell de Bled" loading="lazy"><figcaption>Castell de Bled</figcaption></figure><figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Slovenia_-_Waterfall_Sum_-_Vintgar_Klamm_%2843686688490%29.jpg/960px-Slovenia_-_Waterfall_Sum_-_Vintgar_Klamm_%2843686688490%29.jpg" alt="Congost de Vintgar" loading="lazy"><figcaption>Congost de Vintgar</figcaption></figure><figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Aerial_image_of_Lake_Bohinj_%28view_from_the_south%29.jpg/960px-Aerial_image_of_Lake_Bohinj_%28view_from_the_south%29.jpg" alt="Llac Bohinj" loading="lazy"><figcaption>Llac Bohinj</figcaption></figure></div>
+  <div class="stage-body">
+    <div class="hotel"><b>Rikli Balance Hotel</b> · Cankarjeva cesta 4, Bled · Check-in 14:00 / out 11:00 · Ref. SI00 2427048-03 · una habitació amb vistes al llac · Pàrquing de pagament (preu no indicat — pregunteu al check-in) · ☎ +386 4 579 1700</div>
+    <div class="drive"><span>🚗 Ljubljana → Bled</span><span class="km">~55 km · 45 min</span><a href="https://www.google.com/maps/dir/?api=1&origin=Ljubljana&destination=Rikli+Balance+Hotel,+Bled" target="_blank">Obrir a Maps ›</a></div>
+
+    <div class="day"><h4><span class="pill">DJ 23</span> Arribada suau</h4>
+    <ul class="tl">
+      <li><b class="hr">14:00</b> Check-in i baixada al llac (2 min a peu).</li>
+      <li><b class="hr">16:00</b> Passeig per la riba oest fins a l'embarcador de Mlino; primeres fotos de l'illot.</li>
+      <li><b class="hr">19:30</b> Sopar amb vistes + <b>kremna rezina</b> (el pastís de crema de Bled, ~5-6 €) de postres. Obligatori.</li>
+    </ul></div>
+
+    <div class="day"><h4><span class="pill">DV 24</span> Illa + Castell</h4>
+    <ul class="tl">
+      <li><b class="hr">09:00</b> <b>Barca pletna a l'Illa de Bled</b> des del moll de Mlino (menys cues que el central). 99 esglaons, campana dels desitjos: 3 estirades i desig concedit. <span class="tip">⚠️ NOMÉS EFECTIU. 40-45 min a l'illa inclosos.</span>
+      <span class="ticket">🎟 20 €/adult · 10 € nens 4-12 → família ≈ 70 € (l'Aina paga adult)</span>
+      <span class="ticket">🎟 Església + campanar (opcional): 12 €/adult</span></li>
+      <li><b class="hr">12:30</b> Dinar al poble.</li>
+      <li><b class="hr">15:00</b> <b>Castell de Bled</b> — museu, impremta històrica i la panoràmica definitiva del llac.
+      <a class="ticket" href="https://www.blejski-grad.si/en" target="_blank">🎟 19 €/adult · 7 €/nen → família ≈ 71 €</a></li>
+      <li><b class="hr">17:30</b> Bany al llac a la zona del Grajsko kopališče (bany del castell) o gratis des de la riba de Velika Zaka.</li>
+    </ul></div>
+
+    <div class="day"><h4><span class="pill">DS 25</span> Vintgar + Llac Bohinj</h4>
+    <ul class="tl">
+      <li><b class="hr">08:00</b> <b>Congost de Vintgar</b> — franja reservada a les 8:00 per anar-hi gairebé sols. Passarel·les de fusta sobre aigua turquesa, 1,6 km d'anada, ruta circular de tornada (total ~2h). Casc obligatori (el donen allà). <span class="tip">Pàrquing oficial + shuttle: arribeu 45 min abans de la vostra franja. Pàrquing 5 €.</span>
+      <a class="ticket" href="https://vintgar.si/en/" target="_blank">🎟 15 €/adult · 5 € nens 3-15 → família ≈ 45 €</a></li>
+      <li><b class="hr">12:00</b> Dinar a Bled i descans.</li>
+      <li><b class="hr">15:00</b> <b>Llac Bohinj</b> (30 min en cotxe): més salvatge i tranquil, bany en aigua cristal·lina. <span class="tip">Opcional: telefèric Vogel per a vistes alpines (~28 €/adult a/t).</span> <a class="ticket" href="https://www.google.com/maps/dir/?api=1&origin=Bled&destination=Lake+Bohinj" target="_blank">📍 Ruta</a></li>
+      <li><b class="hr">19:30</b> Tornada i sopar a Bled.</li>
+    </ul></div>
+
+    <div class="day"><h4><span class="pill">DG 26</span> Sortida amb bany de riu a mig camí 🏊</h4>
+    <ul class="tl">
+      <li><b class="hr">10:30</b> Check-out (límit 11:00) i sortida. Frontera Eslovènia-Croàcia: DNI/passaports a mà.</li>
+      <li><b class="hr">12:45</b> 🏊 <b>Gradsko kupalište Duga Resa</b> — Mrežnička obala 12, Duga Resa: el bany fluvial del riu <b>Mrežnica</b>, aigua verd maragda amb petites cascades, gespa, trampolí i bar-terrassa. La parada perfecta per dinar i banyar-se just a mig trajecte (2h-2h30 de parada). Banyadors a mà al cotxe, no a la maleta. <span class="ticket free">✓ Gratuït</span> <a class="ticket" href="https://www.google.com/maps/search/?api=1&query=Gradsko+kupali%C5%A1te+Duga+Resa" target="_blank">📍 Com arribar-hi</a></li>
+      <li><b class="hr">15:15</b> Últim tram fins a Plitvice (~1h per l'interior).</li>
+    </ul></div>
+  </div>
+</div>
+
+<!-- ETAPA 5 -->
+<div class="stage">
+  <div class="stage-head">
+    <span class="num">Etapa 5 · Plitvice</span><span class="dates">Diumenge 26 – Dimarts 28 juliol · 2 nits · Ethno Houses Plitvica Selo</span>
+    <h3>El dia de les 16 cascades</h3>
+  </div>
+<div class="photos"><figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Mreznica-2.JPG/960px-Mreznica-2.JPG" alt="Riu Mrežnica · Duga Resa, parada de bany" loading="lazy"><figcaption>Riu Mrežnica · Duga Resa, parada de bany</figcaption></figure><figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/View_in_Plitvice_Lakes_National_Park.jpg/960px-View_in_Plitvice_Lakes_National_Park.jpg" alt="P.N. Plitvice · passarel·les i llacs" loading="lazy"><figcaption>P.N. Plitvice · passarel·les i llacs</figcaption></figure></div>
+  <div class="stage-body">
+    <div class="hotel"><b>Ethno Houses Plitvica Selo</b> · Plitvica Selo 66/1 · Check-in 15:00 / out 10:30 · Preinvoice 088-ENP-2026 · Pàrquing inclòs ✓ · ☎ +385 91 123 4175 · Sou a 10 min a peu del mirador del Veliki Slap — ubicació privilegiada.</div>
+    <div class="drive"><span>🚗 Bled → Plitvice</span><span class="km">~215 km · 3h</span><a href="https://www.google.com/maps/dir/?api=1&origin=Bled&destination=Plitvica+Selo+66,+Plitvicka+Jezera" target="_blank">Obrir a Maps ›</a></div>
+
+    <div class="day"><h4><span class="pill">DG 26</span> Arribada</h4>
+    <ul class="tl">
+      <li><b class="hr">16:30</b> Check-in, passeig curt al mirador del <b>Veliki Slap</b> (la gran cascada, 78 m) per fer boca, i sopar tranquil al mateix allotjament (cuina casolana local molt valorada). Aviat a dormir.</li>
+    </ul></div>
+
+    <div class="day"><h4><span class="pill">DL 27</span> Dia complet al Parc Nacional</h4>
+    <ul class="tl">
+      <li><b class="hr">08:30</b> A l'<b>Entrada Nord (Entrada 1 / Rastovača)</b> — el vostre tour comença a les <b>09:00</b>. Comença pels Llacs Inferiors i el Veliki Slap amb el parc encara fresc.
+      <span class="ticket free">✓ COMPRAT · Booking ID 32653490 · 2 adults + 3 nens · a nom de Cristina Pitart Ferre · inclou tren i vaixell</span>
+      <span class="warn">Porteu la confirmació/QR al mòbil (i captura de pantalla per si no hi ha cobertura). El bitllet només és vàlid per l'Entrada Nord.</span></li>
+      <li><b class="hr">09:00</b> Recorregut guiat del tour (~4-6h): Llacs Inferiors a peu → vaixell elèctric pel llac Kozjak (el millor per als petits) → Llacs Superiors per passarel·les → tornada amb el tren panoràmic.</li>
+      <li><b class="hr">13:00</b> Pícnic o bufet a la zona de l'embarcador P3. <span class="tip">Porteu aigua i gorres: a l'agost pica fort. No està permès banyar-se dins del parc.</span></li>
+      <li><b class="hr">16:00</b> Últims miradors i tornada caminant a l'allotjament.</li>
+      <li><b class="hr">20:00</b> Sopar i descans — demà, rumb al mar.</li>
+    </ul></div>
+
+    <div class="day"><h4><span class="pill">DT 28</span> Sortida cap a Zadar</h4>
+    <ul class="tl">
+      <li><b class="hr">10:00</b> Check-out (límit 10:30) i baixada a la costa (~2h).</li>
+    </ul></div>
+  </div>
+</div>
+
+<!-- ETAPA 6 -->
+<div class="stage">
+  <div class="stage-head">
+    <span class="num">Etapa 6 · Zadar ★ El millor hotel</span><span class="dates">Dimarts 28 juliol – Dissabte 1 agost · 4 nits · Mitja pensió</span>
+    <h3>Falkensteiner Diadora: mig dia d'hotel, mig de descobrir</h3>
+  </div>
+<div class="photos"><figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Zadar-Sea-Organ.jpg/960px-Zadar-Sea-Organ.jpg" alt="Zadar · Orgue Marí" loading="lazy"><figcaption>Zadar · Orgue Marí</figcaption></figure><figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Fu%C3%9Fg%C3%A4ngerzone_Nin_1.jpg/960px-Fu%C3%9Fg%C3%A4ngerzone_Nin_1.jpg" alt="Nin · nucli històric" loading="lazy"><figcaption>Nin · nucli històric</figcaption></figure><figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Krkawatervallen.jpg/960px-Krkawatervallen.jpg" alt="P.N. Krka · Skradinski Buk" loading="lazy"><figcaption>P.N. Krka · Skradinski Buk</figcaption></figure></div>
+  <div class="stage-body">
+    <div class="hotel"><b>Falkensteiner Diadora</b> · Punta Skala, Petrčane · Check-in 15:00 / out 10:00 · Res. 15792813 · Suite Familiar Falky vista mar · Pàrquing 13 €/dia · ☎ +385 2355 5911<br>Inclou: piscines + parc aquàtic Acquapura, platja privada, Falky Land (club infantil 3-12, perfecte per a la Júlia), pistes esportives.</div>
+    <div class="drive"><span>🚗 Plitvice → Zadar</span><span class="km">~140 km · 2h</span><a href="https://www.google.com/maps/dir/?api=1&origin=Plitvicka+Jezera&destination=Falkensteiner+Hotel+Diadora,+Petrcane" target="_blank">Obrir a Maps ›</a></div>
+
+    <div class="day"><h4><span class="pill">DT 28</span> Tarda 100% hotel</h4>
+    <ul class="tl">
+      <li><b class="hr">15:00</b> Check-in i directes a piscines/platja. Sopar de mitja pensió i passeig per Punta Skala.</li>
+    </ul></div>
+
+    <div class="day"><h4><span class="pill">DC 29</span> Matí Zadar ciutat · Tarda hotel</h4>
+    <ul class="tl">
+      <li><b class="hr">09:30</b> Cotxe a Zadar (20 min, pàrquing a la zona del port). Nucli antic: Fòrum Romà, església de Sant Donat, carrers venecians.</li>
+      <li><b class="hr">11:00</b> <b>Orgue Marí</b> — seieu als esglaons i escolteu el mar tocar. Al costat, la <b>Salutació al Sol</b> (torneu-hi una altra nit si podeu: al capvespre s'il·lumina). <span class="ticket free">✓ Gratuït</span></li>
+      <li><b class="hr">13:00</b> Gelat a la Kalelarga i tornada a l'hotel per dinar.</li>
+      <li><b class="hr">15:00</b> Tarda d'aquapark, platja i Falky Land.</li>
+    </ul></div>
+
+    <div class="day"><h4><span class="pill">DJ 30</span> Matí hotel · Tarda Nin</h4>
+    <ul class="tl">
+      <li><b class="hr">09:00</b> Matí sencer d'instal·lacions sense presses.</li>
+      <li><b class="hr">16:00</b> <b>Nin</b> (25 min): poble-illa històric, platges de sorra poc profundes ideals per a la Júlia i els famosos <b>banys de fang</b> de la llacuna (gratuïts). L'església més petita del món segons la tradició local. <a class="ticket" href="https://www.google.com/maps/dir/?api=1&origin=Petrcane&destination=Nin,+Croatia" target="_blank">📍 Ruta</a></li>
+      <li><b class="hr">19:30</b> Tornada per al sopar de mitja pensió.</li>
+    </ul></div>
+
+    <div class="day"><h4><span class="pill">DV 31</span> Krka (opció A) o dia complet d'hotel (opció B)</h4>
+    <ul class="tl">
+      <li><b class="hr">10:00</b> <b>Opció A — P.N. Krka</b> (1h15 en cotxe, entrada Lozovac amb pàrquing gratuït): passarel·la circular d'1,9 km al voltant d'<b>Skradinski Buk</b>, la cascada travertínica més gran d'Europa. <span class="tip">⚠️ Des del 2021 NO està permès banyar-se a Skradinski Buk; hi ha zones de bany senyalitzades a Roški Slap, Stinice i Pisak (jun-set). Si l'objectiu del dia és banyar-se, millor l'opció B.</span>
+      <a class="ticket" href="https://www.npkrka.hr/en_US/" target="_blank">🎟 40 €/adult · 30 € després de les 15:00 · nens reduïda · &lt;7 gratis</a></li>
+      <li><b class="hr">—</b> <b>Opció B</b>: últim dia sencer de Diadora — sense cotxe, sense horaris. Amb tres nens i 4 dies d'hotel pagats, és una opció igual de bona.</li>
+    </ul></div>
+
+    <div class="day"><h4><span class="pill">DS 1</span> Últim bany i ruta llarga</h4>
+    <ul class="tl">
+      <li><b class="hr">09:30</b> Check-out a les 10:00 en punt; últim capbussó abans si matinegeu. Sortida cap a Belgrad.</li>
+      <li><b class="hr">13:45</b> 🍽️ <b>Parada per dinar a Slavonski Brod</b> (a peu de l'A3, a ~3h30): passeig de 30 min per la <b>fortalesa de Brod</b> (una de les fortaleses barroques més grans d'Europa, entrada lliure) i el passeig fluvial del Sava, i dinar al centre. 1h30 en total. <a class="ticket" href="https://www.google.com/maps/search/?api=1&query=Tvr%C4%91ava+Brod+Slavonski+Brod" target="_blank">📍 Fortalesa de Brod</a></li>
+      <li><b class="hr">15:15</b> Últim tram (~2h30) i frontera Croàcia-Sèrbia: passaports a mà, a l'agost hi pot haver cua. <span class="warn">📶 En creuar la frontera: <b>activeu l'eSIM de Sèrbia</b> (3 dies · dades il·limitades) i <b>desactiveu les dades en itinerància de Movistar</b> — a Sèrbia el roaming UE no val i es factura a part.</span></li>
+    </ul></div>
+  </div>
+</div>
+
+<!-- ETAPA 7 · BELGRAD -->
+<div class="stage bball">
+  <div class="stage-head">
+    <span class="num" style="color:var(--bball)">Etapa 7 · Belgrad 🏀 La parada del bàsquet</span><span class="dates">Dissabte 1 – Dilluns 3 agost · 2 nits · Radisson RED</span>
+    <h3>La ciutat que respira bàsquet</h3>
+  </div>
+<div class="photos"><figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/%D0%9A%D0%B0%D0%BB%D0%B5%D0%BC%D0%B5%D0%B3%D0%B4%D0%B0%D0%BD%2C_%D1%81%D0%BF%D0%BE%D0%BC%D0%B5%D0%BD%D0%B8%D0%BA_%D0%9F%D0%BE%D0%B1%D1%98%D0%B5%D0%B4%D0%BD%D0%B8%D0%BA%2C_%D0%91%D0%B8%D0%BE%D0%B3%D1%80%D0%B0%D0%B4.jpg/960px-%D0%9A%D0%B0%D0%BB%D0%B5%D0%BC%D0%B5%D0%B3%D0%B4%D0%B0%D0%BD%2C_%D1%81%D0%BF%D0%BE%D0%BC%D0%B5%D0%BD%D0%B8%D0%BA_%D0%9F%D0%BE%D0%B1%D1%98%D0%B5%D0%B4%D0%BD%D0%B8%D0%BA%2C_%D0%91%D0%B8%D0%BE%D0%B3%D1%80%D0%B0%D0%B4.jpg" alt="Fortalesa de Kalemegdan" loading="lazy"><figcaption>Fortalesa de Kalemegdan</figcaption></figure><figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Skadarska_street.jpg/960px-Skadarska_street.jpg" alt="Skadarlija, el barri bohemi" loading="lazy"><figcaption>Skadarlija, el barri bohemi</figcaption></figure><figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/%D0%A1%D0%B2%D1%98%D0%B5%D1%82%D0%BB%D0%BE%D0%BF%D0%B8%D1%81_%D0%90%D0%B4%D0%B5_%D0%A1%D0%B8%D0%BD%D0%B3%D0%B0%D0%BB%D0%B8%D1%98%D0%B5_%D1%83_%D0%91%D0%B8%D0%BE%D0%B3%D1%80%D0%B0%D0%B4%D1%83.jpg/960px-%D0%A1%D0%B2%D1%98%D0%B5%D1%82%D0%BB%D0%BE%D0%BF%D0%B8%D1%81_%D0%90%D0%B4%D0%B5_%D0%A1%D0%B8%D0%BD%D0%B3%D0%B0%D0%BB%D0%B8%D1%98%D0%B5_%D1%83_%D0%91%D0%B8%D0%BE%D0%B3%D1%80%D0%B0%D0%B4%D1%83.jpg" alt="Ada Ciganlija, la platja de Belgrad" loading="lazy"><figcaption>Ada Ciganlija, la platja de Belgrad</figcaption></figure></div>
+  <div class="stage-body">
+    <div class="hotel"><b>Radisson RED Belgrade</b> · Takovska 49 · Check-in 15:00 / out 12:00 · Res. 8466477 · Pàrquing 15 €/dia · ☎ +381 114 119 088<br>💱 Sèrbia no fa servir l'euro: traieu <b>dinars (RSD)</b> d'un caixer en arribar (1 € ≈ 117 RSD). 🏀 Poseu una pilota al maleter — la fareu servir.</div>
+    <div class="drive"><span>🚗 Zadar → Belgrad</span><span class="km">~500 km · 6-7h ⚠️</span><a href="https://www.google.com/maps/dir/?api=1&origin=Petrcane&destination=Takovska+49,+Belgrade" target="_blank">Obrir a Maps ›</a></div>
+
+    <div class="day"><h4><span class="pill">DS 1</span> Arribada i Skadarlija</h4>
+    <ul class="tl">
+      <li><b class="hr">17:30</b> Check-in i descans.</li>
+      <li><b class="hr">19:30</b> Sopar a <b>Skadarlija</b>, el barri bohemi empedrat (10 min a peu de l'hotel): ćevapi i pljeskavica amb música en viu — ració XXL, demaneu per compartir.</li>
+    </ul></div>
+
+    <div class="day"><h4><span class="pill">DG 2</span> EL dia del bàsquet</h4>
+    <ul class="tl">
+      <li><b class="hr">09:00</b> <b>Fortalesa de Kalemegdan</b>: passeig per muralles i miradors sobre la confluència Sava-Danubi.</li>
+      <li><b class="hr">10:00</b> <b>La pista de Kalemegdan</b> 🏀 — una de les pistes de carrer més icòniques d'Europa, sota la muralla de la fortalesa. Que l'Aina, en Pol i la Júlia juguin on s'ha format tant de talent serbi. <span class="tip">Es pot llogar la pista sencera: ~1.000 RSD/hora (≈ 8,50 €). Si està lliure, s'hi juga i punt.</span>
+      <span class="ticket free">✓ Parc i fortalesa gratuïts</span></li>
+      <li><b class="hr">12:00</b> Baixada per <b>Knez Mihailova</b> (per a vianants): botigues oficials del <b>Partizan</b> (carrer Sremska) i del <b>Crvena Zvezda</b> per a la samarreta de record — mireu els noms: Jokić, Micić, Jović... tots van passar per aquí.</li>
+      <li><b class="hr">13:30</b> Dinar pel centre.</li>
+      <li><b class="hr">15:00</b> <b>Museu Nikola Tesla</b> — tour guiat en anglès amb demostracions elèctriques en viu (llamps inclosos: èxit garantit amb tots tres). Tours a cada hora en punt, ~45 min. <span class="tip">Sense entrada anticipada hi ha cues d'hores.</span>
+      <a class="ticket" href="https://tesla-museum.org/en/visit/plan-your-visit/" target="_blank">🎟 Reservar a tesla-museum.org</a></li>
+      <li><b class="hr">17:00</b> <b>Ada Ciganlija</b>, la "platja de Belgrad" (15 min en taxi/cotxe): bany al llac, ambient familiar i més pistes a l'aire lliure.</li>
+      <li><b class="hr">20:00</b> Cloenda: pista rooftop del <b>DunkShop</b> a l'àtic del centre comercial <b>Galerija Belgrade</b> — jugar amb la ciutat de fons. Sopar al mateix Galerija o a la zona del Waterfront.
+      <a class="ticket" href="https://www.google.com/maps/search/?api=1&query=DunkShop+Galerija+Belgrade" target="_blank">📍 Com arribar-hi</a></li>
+      <li><b class="hr">—</b> <span class="tip">Nota: a l'agost l'Eurolliga i la lliga ABA estan en pretemporada — no hi ha partits, però l'Stark Arena (Partizan) queda de camí a Ada si voleu la foto.</span></li>
+    </ul></div>
+
+    <div class="day"><h4><span class="pill">DL 3</span> Sortida amb parada a Novi Sad</h4>
+    <ul class="tl">
+      <li><b class="hr">09:30</b> Check-out i sortida.</li>
+      <li><b class="hr">10:45</b> 🏰 <b>Novi Sad</b> (desviament de només +40 min sobre la ruta i val molt la pena): la fortalesa de <b>Petrovaradin</b>, el "Gibraltar del Danubi", amb la seva icònica torre del rellotge invertit i vistes al riu; baixada al centre per dinar d'hora a la zona per a vianants de Zmaj Jovina. 2h en total. <a class="ticket" href="https://www.google.com/maps/search/?api=1&query=Petrovaradin+Fortress+Novi+Sad" target="_blank">📍 Petrovaradin</a></li>
+      <li><b class="hr">13:00</b> Ruta a Zagreb (~4h) i frontera de tornada a la UE. <span class="tip">📶 En creuar a Croàcia: apagueu la línia eSIM de Sèrbia i reactiveu les dades de Movistar — torneu a ser en roaming UE gratuït.</span></li>
+    </ul></div>
+  </div>
+</div>
+
+<!-- ETAPA 8 -->
+<div class="stage">
+  <div class="stage-head">
+    <span class="num">Etapa 8 · Zagreb</span><span class="dates">Dilluns 3 – Dimarts 4 agost · 1 nit · Esplanade Zagreb</span>
+    <h3>Una tarda a la Ciutat Alta</h3>
+  </div>
+<div class="photos"><figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Petrovaradin_Fortress_%28P%C3%A9terv%C3%A1radi_v%C3%A1r%2C_Peterwardein%29.JPG/960px-Petrovaradin_Fortress_%28P%C3%A9terv%C3%A1radi_v%C3%A1r%2C_Peterwardein%29.JPG" alt="Novi Sad · fortalesa de Petrovaradin" loading="lazy"><figcaption>Novi Sad · fortalesa de Petrovaradin</figcaption></figure><figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Zagreb_Church_of_St._Mark_%2834411766366%29.jpg/960px-Zagreb_Church_of_St._Mark_%2834411766366%29.jpg" alt="Zagreb · església de Sant Marc" loading="lazy"><figcaption>Zagreb · església de Sant Marc</figcaption></figure></div>
+  <div class="stage-body">
+    <div class="hotel"><b>Esplanade Zagreb Hotel</b> · Ul. Antuna Mihanovića 1 · Check-in 15:00 / out 12:00 · Res. 574910671 · Pàrquing ext. 30 €/dia · ☎ +385 1 45 66 666 · Hotel històric de l'Orient Express (1925) — fixeu-vos en el vestíbul.</div>
+    <div class="drive"><span>🚗 Belgrad → Zagreb</span><span class="km">~390 km · 4h</span><a href="https://www.google.com/maps/dir/?api=1&origin=Belgrade&destination=Esplanade+Zagreb+Hotel" target="_blank">Obrir a Maps ›</a></div>
+    <ul class="tl">
+      <li><b class="hr">17:15</b> Check-in i passeig: plaça <b>Ban Jelačić</b> → catedral. <span class="tip">Zagreb avui és mitja tarda ben aprofitada — la parada de Novi Sad compensa de sobres.</span></li>
+      <li><b class="hr">18:15</b> <b>Funicular de Zagreb</b> — el més curt del món (66 m, 64 segons): pujada a la Ciutat Alta. <span class="ticket">🎟 ~0,66 €/persona</span></li>
+      <li><b class="hr">18:30</b> <b>Església de Sant Marc</b> (el famós teulat de colors) i torre Lotrščak.</li>
+      <li><b class="hr">19:15</b> Opció amb nens: <b>Museu de les Il·lusions</b> (visita curta i divertida, obre fins tard a l'estiu). <a class="ticket" href="https://muzejiluzija.com/en/" target="_blank">🎟 ~12 €/adult · ~8 €/nen</a></li>
+      <li><b class="hr">20:30</b> Sopar a <b>Tkalčićeva</b>, el carrer de les terrasses.</li>
+      <li><b class="hr">—</b> <span class="tip">Dimarts: sortida a les 8:00. Parada estrella a mig camí: <b>Graz</b> (Àustria, ~2h de Zagreb) — nucli antic UNESCO, pujada al Schlossberg i baixada pel <b>tobogan subterrani de 64 m</b> excavat dins la muntanya (Schlossbergrutsche, ~6 €/persona): els nens el recordaran més que mitja Praga. Dinar i a continuar (queden ~4h).</span></li>
+    </ul>
+  </div>
+</div>
+
+<!-- ETAPA 9 -->
+<div class="stage">
+  <div class="stage-head">
+    <span class="num">Etapa 9 · Praga</span><span class="dates">Dimarts 4 – Divendres 7 agost · 3 nits · Innside Old Town</span>
+    <h3>Castell, rellotge i carrerons daurats</h3>
+  </div>
+<div class="photos"><figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Prague_07-2016_view_from_Lesser_Town_Tower_of_Charles_Bridge_img3.jpg/960px-Prague_07-2016_view_from_Lesser_Town_Tower_of_Charles_Bridge_img3.jpg" alt="Pont de Carles" loading="lazy"><figcaption>Pont de Carles</figcaption></figure><figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Karl%C5%AFv_most_Praha%2C_Star%C3%A9_M%C4%9Bsto_20170810_007.jpg/960px-Karl%C5%AFv_most_Praha%2C_Star%C3%A9_M%C4%9Bsto_20170810_007.jpg" alt="Castell de Praga des del Moldava" loading="lazy"><figcaption>Castell de Praga des del Moldava</figcaption></figure><figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Astronomical_Clock_%288341899828%29.jpg/960px-Astronomical_Clock_%288341899828%29.jpg" alt="Rellotge Astronòmic" loading="lazy"><figcaption>Rellotge Astronòmic</figcaption></figure><figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Pet%C5%99%C3%ADnsk%C3%A1_rozhledna%2C_Prague.jpg/960px-Pet%C5%99%C3%ADnsk%C3%A1_rozhledna%2C_Prague.jpg" alt="Torre de Petřín" loading="lazy"><figcaption>Torre de Petřín</figcaption></figure></div>
+  <div class="stage-body">
+    <div class="hotel"><b>Innside by Meliá Prague Old Town</b> · Soukenická 1188/25 · Check-in 14:00 / out 11:00 · Res. 574910671 · Pàrquing 35 €/dia · ☎ +420 222 312 521<br>💱 Txèquia fa servir <b>corones (CZK)</b>: 1 € ≈ 24-25 CZK. ⚠️ Vinyeta austríaca (~12 €, 10 dies) i txeca (~9 €, 10 dies) segons ruta — comproveu el traçat; es compren online (asfinag.at / edalnice.cz).</div>
+    <div class="drive"><span>🚗 Zagreb → Praga</span><span class="km">~600 km · 6h ⚠️</span><a href="https://www.google.com/maps/dir/?api=1&origin=Zagreb&destination=Soukenicka+25,+Prague" target="_blank">Obrir a Maps ›</a></div>
+
+    <div class="day"><h4><span class="pill">DT 4</span> Arribada + Pont de Carles de nit</h4>
+    <ul class="tl">
+      <li><b class="hr">16:30</b> Check-in i descans (amb la parada a Graz de camí).</li>
+      <li><b class="hr">19:00</b> Passeig al <b>Pont de Carles</b> (15 min a peu) — al vespre, amb el castell il·luminat i menys gent. Sopar per la Ciutat Vella.</li>
+    </ul></div>
+
+    <div class="day"><h4><span class="pill">DC 5</span> Castell de Praga i Malá Strana</h4>
+    <ul class="tl">
+      <li><b class="hr">09:00</b> Tramvia 22 fins a Pražský hrad. <b>Castell de Praga</b>: Catedral de Sant Vit, Antic Palau Reial i el <b>Carreró Daurat</b> amb les seves casetes de colors (la núm. 22 va ser de Kafka). Control de seguretat: arribeu-hi aviat.
+      <a class="ticket" href="https://www.hrad.cz/en/prague-castle-for-visitors/tickets" target="_blank">🎟 Circuit bàsic ~450 CZK/adult (~18 €) · familiar disponible · hrad.cz</a></li>
+      <li><b class="hr">12:00</b> Canvi de guàrdia del migdia al pati principal (el més vistós).</li>
+      <li><b class="hr">13:00</b> Baixada a <b>Malá Strana</b>: dinar i el Mur de Lennon.</li>
+      <li><b class="hr">16:00</b> <b>Illa de Kampa</b> i creuament del Pont de Carles de dia. Trdelník per berenar (~3 €).</li>
+    </ul></div>
+
+    <div class="day"><h4><span class="pill">DJ 6</span> Rellotge Astronòmic + Petřín</h4>
+    <ul class="tl">
+      <li><b class="hr">09:30</b> <b>Plaça de la Ciutat Vella</b>: espereu l'hora en punt per veure la desfilada dels apòstols del <b>Rellotge Astronòmic</b>. Opcional: pujar a la torre de l'Ajuntament (ascensor, vistes top).</li>
+      <li><b class="hr">11:00</b> Passeig curt pel <b>Barri Jueu</b> (Josefov) i el carrer Pařížská.</li>
+      <li><b class="hr">14:30</b> <b>Turó de Petřín</b>: pujada a la <b>Torre de Petřín</b> (la mini-Eiffel, 299 esglaons o ascensor) + <b>Laberint de Miralls</b> al costat — rialles assegurades.
+      <span class="tip">⚠️ El funicular històric està en obres des del 2024 amb reobertura prevista el 2026 — comproveu a dpp.cz si ja funciona; si no, tramvia 22 fins a Pohořelec i baixada a peu (fàcil).</span>
+      <a class="ticket" href="https://www.prague.eu/en/objevujte/petrin-tower-petrinska-rozhledna/" target="_blank">🎟 Torre 250 CZK/adult · familiar 500 CZK · ascensor +150 CZK · 50% dte. la 1a hora del dia</a></li>
+      <li><b class="hr">19:30</b> Sopar amb <b>espectacle de titelles</b> (tradició txeca) o creuer curt pel Moldava — a triar segons energia.</li>
+    </ul></div>
+
+    <div class="day"><h4><span class="pill">DV 7</span> Sortida amb salsitxes medievals de camí</h4>
+    <ul class="tl">
+      <li><b class="hr">09:00</b> Check-out i ruta (a Alemanya no hi ha vinyeta: autopistes gratuïtes).</li>
+      <li><b class="hr">11:45</b> 🌭 <b>Dinar a Regensburg</b> (a peu de ruta): nucli medieval UNESCO, el Pont de Pedra sobre el Danubi i la <b>Historische Wurstkuchl</b> — la "salsitxeria" més antiga del món (funciona des del s. XII, al costat del pont): salsitxes a la brasa amb xucrut que encanten als nens. 1h30 de parada. <a class="ticket" href="https://www.google.com/maps/search/?api=1&query=Historische+Wurstkuchl+Regensburg" target="_blank">📍 Wurstkuchl</a></li>
+      <li><b class="hr">13:15</b> Últim tram (~3h). Check-in al Krønasår a partir de les 15:30.</li>
+    </ul></div>
+  </div>
+</div>
+
+<!-- ETAPA 10 -->
+<div class="stage">
+  <div class="stage-head">
+    <span class="num">Etapa 10 · Europa-Park</span><span class="dates">Divendres 7 – Dilluns 10 agost · 3 nits · Hotel Krønasår · Entrades 2 dies incloses</span>
+    <h3>Terreny conegut (5a visita)</h3>
+  </div>
+<div class="photos"><figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Regensburg_-_Steinerne_Bruecke_ohne_Dom.jpg/960px-Regensburg_-_Steinerne_Bruecke_ohne_Dom.jpg" alt="Regensburg · Pont de Pedra" loading="lazy"><figcaption>Regensburg · Pont de Pedra</figcaption></figure><figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Haupteingang_%28main_entrance%29_Europa-Park_Rust.JPG/960px-Haupteingang_%28main_entrance%29_Europa-Park_Rust.JPG" alt="Europa-Park · entrada principal" loading="lazy"><figcaption>Europa-Park · entrada principal</figcaption></figure></div>
+  <div class="stage-body">
+    <div class="hotel"><b>Hotel Krønasår</b> · Roland-Mack-Ring 3, Rust · Check-in 15:30 / out 11:00 · Res. H14459155 · Pàrquing i tax inclosos ✓ · ☎ +49 7822 8600<br>Inclòs com a hostes: shuttle al parc, entrada anticipada, souvenir express, piscina + sauna + fitness.</div>
+    <div class="drive"><span>🚗 Praga → Rust</span><span class="km">~500 km · 5h</span><a href="https://www.google.com/maps/dir/?api=1&origin=Prague&destination=Hotel+Kronasar,+Rust" target="_blank">Obrir a Maps ›</a></div>
+    <ul class="tl">
+      <li><b class="hr">DS 8 + DG 9</b> Els 2 dies de parc inclosos. El coneixeu millor que ningú — només un recordatori: l'app d'Europa-Park amb <b>VirtualLine</b> per reservar cua a les atraccions fortes (Voltron per a l'Aina i en Pol).</li>
+      <li><b class="hr">DV 7 tarda o DL 10 matí</b> Alternativa que potser no heu fet: <b>Rulantica</b>, el parc aquàtic cobert (al costat, no inclòs). En ple agost és un planàs.
+      <a class="ticket" href="https://www.rulantica.de/en/tickets" target="_blank">🎟 Rulantica: des de ~50 €/adult · ~43 €/nen (online, segons dia)</a></li>
+      <li><b class="hr">—</b> <span class="tip">Si no, piscina del Krønasår i descans: porteu 20 dies de ruta i queden les últimes etapes.</span></li>
+    </ul>
+  </div>
+</div>
+
+<!-- ETAPA 11 -->
+<div class="stage">
+  <div class="stage-head">
+    <span class="num">Etapa 11 · Berna</span><span class="dates">Dilluns 10 – Dimecres 12 agost · 2 nits · Holiday Inn Westside</span>
+    <h3>El ritual anual de l'Aare 🌊</h3>
+  </div>
+<div class="photos"><figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Bern_Untertorbr%C3%BCcke_05.jpg/960px-Bern_Untertorbr%C3%BCcke_05.jpg" alt="L'Aare al seu pas per Berna" loading="lazy"><figcaption>L'Aare al seu pas per Berna</figcaption></figure><figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Zytglogge_01.jpg/960px-Zytglogge_01.jpg" alt="Zytglogge, la torre del rellotge" loading="lazy"><figcaption>Zytglogge, la torre del rellotge</figcaption></figure><figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Pont_du_Gard_BLS.jpg/960px-Pont_du_Gard_BLS.jpg" alt="Pont du Gard, parada de la tornada" loading="lazy"><figcaption>Pont du Gard, parada de la tornada</figcaption></figure></div>
+  <div class="stage-body">
+    <div class="hotel"><b>Holiday Inn Bern Westside</b> · Riedbachstrasse 96 · Check-in 14:00 / out 11:00 · Res. 323709 · ☎ +41 31 985 2400<br>🅿️ <b>IMPORTANT:</b> doneu la matrícula a recepció ABANS de treure el cotxe del pàrquing per primera vegada → tarifa hotel 19 CHF/nit (si no, 40 CHF i ja no es pot canviar). Places: soterrani -2, secció vermella P50, alçada màx. 2,20 m.<br>💱 Suïssa fa servir <b>francs (CHF)</b> + vinyeta suïssa obligatòria: 40 CHF anual, física o e-vignette a <a href="https://via.admin.ch/shop/dashboard">via.admin.ch</a>.</div>
+    <div class="drive"><span>🚗 Rust → Berna</span><span class="km">~230 km · 2h30</span><a href="https://www.google.com/maps/dir/?api=1&origin=Rust,+Germany&destination=Riedbachstrasse+96,+Bern" target="_blank">Obrir a Maps ›</a></div>
+
+    <div class="day"><h4><span class="pill">DL 10</span> Arribada tranquil·la</h4>
+    <ul class="tl">
+      <li><b class="hr">13:30</b> Frontera Alemanya-Suïssa (zona Basilea). <span class="warn">📶 En creuar: <b>activeu l'eSIM de Suïssa</b> (2 dies · dades il·limitades) i <b>desactiveu les dades en itinerància de Movistar</b> — Suïssa no és UE i el roaming es factura a part. Activada dilluns a primera hora de la tarda, els 2 dies cobreixen fins dimecres al matí, just quan sortiu cap a França.</span></li>
+      <li><b class="hr">14:30</b> Check-in + tarda al mateix <b>Westside</b> (piscines/spa Bernaqua, cinema, botigues) — dia de recàrrega.</li>
+    </ul></div>
+
+    <div class="day"><h4><span class="pill">DT 11</span> Aare + nucli antic</h4>
+    <ul class="tl">
+      <li><b class="hr">10:00</b> Nucli antic (UNESCO): <b>Zytglogge</b> a l'hora en punt, porxos, i <b>Fossat dels Óssos</b> (Bärengraben). <span class="ticket free">✓ Tot gratuït</span></li>
+      <li><b class="hr">12:30</b> Dinar i pujada a la <b>Roserar</b> (Rosengarten): la panoràmica clàssica de la ciutat vella amb l'Aare abraçant-la.</li>
+      <li><b class="hr">15:00</b> <b>La vostra tradició: flotar per l'Aare.</b> Amb la Júlia (8), la ruta adequada és la <b>"tranquil·la": de l'Altenbergsteg a la piscina de Lorraine</b> — el tram amb menys corrent dels tres clàssics: es passa sota el pont de Kornhaus, vora el Jardí Botànic i se surt al Lorrainebad.
+      <a class="ticket" href="https://bern.com/en/news/stories-and-recommendations/floating-down-the-aare-river-3-favourite-routes" target="_blank">📖 Les 3 rutes · bern.com</a>
+      <span class="ticket free">✓ Gratis (els banys públics de Berna no cobren entrada)</span>
+      <span class="warn">Seguretat: entrades/sortides marcades amb pal vermell o escales · bossa estanca Wickelfisch per a les coses (es compra a la ciutat, ~25-30 CHF) · fiqueu el cos a l'aigua abans de llançar-vos (l'Aare baixa freda fins i tot a l'agost) · només nedadors amb soltesa: valoreu armilla per a la Júlia i un adult sempre al seu costat · repetiu el tram les vegades que vulgueu, el passeig de tornada són 15 min.</span></li>
+      <li><b class="hr">18:30</b> Berenar-sopar al Lorrainebad o tornada al centre; gelat de comiat del viatge.</li>
+    </ul></div>
+
+    <div class="day"><h4><span class="pill">DC 12</span> La gran tornada</h4>
+    <ul class="tl">
+      <li><b class="hr">07:30</b> Sortida d'hora (~900 km). <a class="ticket" href="https://www.google.com/maps/dir/?api=1&origin=Bern&destination=Barcelona" target="_blank">📍 Ruta completa</a></li>
+      <li><b class="hr">09:30</b> ☕ Parada-esmorzar a <b>Annecy</b> (a 15 min de l'autopista passada Ginebra): canals, llac alpí turquesa i nucli antic — la "Venècia dels Alps". 45 min-1h i a continuar. <span class="tip">📶 En creuar a França ja torneu a ser en roaming UE de Movistar — podeu apagar l'eSIM suïssa.</span> <a class="ticket" href="https://www.google.com/maps/search/?api=1&query=Vieille+Ville+Annecy" target="_blank">📍 Annecy</a></li>
+      <li><b class="hr">13:45</b> 🏛️ Dinar + cames estirades al <b>Pont du Gard</b> (a 5 min de l'A9, prop de Nimes): l'aqüeducte romà de postal, amb zones d'ombra vora el riu Gardon (i hi ha qui s'hi banya!). Entrada de pagament pel recinte — <a href="https://pontdugard.fr" style="color:var(--teal)">pontdugard.fr</a>. 1h30 de parada.</li>
+      <li><b class="hr">18:30</b> Arribada a Barcelona. Fi de la Gran Ruta 🎉 <span class="tip">💡 Si preferiu no fer-ho d'una tirada, una nit extra a Montpeller o Girona parteix la tornada en dos trams suaus — decisió vostra, aquest dia no hi ha hotel reservat.</span></li>
+    </ul></div>
+  </div>
+</div>
+
+<!-- COBERTURA MÒBIL -->
+<h2 class="sect">Cobertura mòbil i eSIM 📶</h2>
+<p class="sect-sub">Amb Movistar teniu roaming UE gratuït a tots els països del viatge excepte <b>Sèrbia</b> i <b>Suïssa</b> — per això les 2 eSIM de dades il·limitades. Calendari exacte:</p>
+<div class="tbl-scroll">
+<table class="resumen">
+<tr><th>Quan</th><th>Acció</th><th>Detall</th></tr>
+<tr><td>Abans del dg 19 (a casa, amb WiFi)</td><td>📲 <b>INSTAL·LAR les 2 eSIM</b></td><td>Instal·lar ≠ activar: escaneu/instal·leu les dues eSIM des de l'app amb bona connexió. Deixeu les línies apagades. ⚠️ No les esborreu mai del mòbil: una eSIM esborrada es perd.</td></tr>
+<tr><td>Del dg 19 al ds 1 ago</td><td>✓ Res a fer</td><td>França, Itàlia, Eslovènia i Croàcia són roaming UE Movistar: mòbil normal, sense cost.</td></tr>
+<tr class="long"><td>Ds 1 ago, ~15:00-17:00 (frontera Croàcia→Sèrbia)</td><td>🇷🇸 <b>ACTIVAR eSIM Sèrbia</b> (3 dies)</td><td>Encendre la línia eSIM per a dades + <b>desactivar dades en itinerància de Movistar</b>. Els 3 dies cobreixen ds 1, dg 2 i dl 3 — encaix perfecte.</td></tr>
+<tr><td>Dl 3 ago, ~13:00 (frontera Sèrbia→Croàcia)</td><td>🇪🇺 Tornar a Movistar</td><td>Apagar l'eSIM sèrbia i reactivar les dades de Movistar (roaming UE de nou).</td></tr>
+<tr class="long"><td>Dl 10 ago, ~13:30 (frontera Alemanya→Suïssa)</td><td>🇨🇭 <b>ACTIVAR eSIM Suïssa</b> (2 dies)</td><td>Mateixa operació: eSIM ON + roaming Movistar OFF. Activada dilluns a mitja tarda, cobreix fins dimecres al matí — comproveu a l'app com compta els dies el vostre pla.</td></tr>
+<tr><td>Dc 12 ago, ~09:30 (frontera Suïssa→França)</td><td>🇪🇺 Tornar a Movistar</td><td>Apagar l'eSIM suïssa i reactivar Movistar per a l'últim tram fins a Barcelona.</td></tr>
+</table>
+</div>
+<p class="sect-sub" style="margin-top:14px">⚠️ <b>Tres avisos importants:</b> (1) Les eSIM són <b>només dades</b> — WhatsApp, mapes i cerca van perfectes, però les trucades normals i SMS segueixen sortint per Movistar amb tarifa de fora UE: millor trucar per WhatsApp aquells dies. (2) A <b>Plitvice i la Dalmàcia interior</b> sou molt a prop de Bòsnia (fora UE): si el mòbil s'enganxa a una xarxa bosniana (BH Telecom, m:tel) pot generar càrrecs — poseu la selecció de xarxa en manual aquells dies o vigileu la icona de l'operador. (3) Poseu-vos el mateix recordatori al mòbil: dues alarmes l'1 i el 10 d'agost amb "ACTIVAR eSIM".</p>
+
+<!-- APARCAMENTS -->
+<h2 class="sect">Aparcaments hotel a hotel</h2>
+<p class="sect-sub">Validat contra el document de reserves de Trending Travel: només 2 dels 11 hotels tenen el pàrquing inclòs.</p>
+<div class="tbl-scroll">
+<table class="resumen">
+<tr><th>Hotel</th><th>Pàrquing</th><th>Cost estada</th></tr>
+<tr><td>Citadines Antigone (Montpeller)</td><td>⚠️ No consta — confirmar amb l'hotel</td><td>—</td></tr>
+<tr><td>Excelsior San Marco (Bèrgam)</td><td>❌ De pagament (import no indicat)</td><td>~25-30 € (est.)</td></tr>
+<tr><td>Occidental Ljubljana</td><td>❌ 35 €/dia</td><td>70 € (2 nits)</td></tr>
+<tr><td>Rikli Balance (Bled)</td><td>❌ De pagament (import no indicat)</td><td>~30-45 € (est.)</td></tr>
+<tr><td>Ethno Houses (Plitvice)</td><td>✅ <b>Inclòs</b></td><td>0 €</td></tr>
+<tr><td>Falkensteiner Diadora (Zadar)</td><td>❌ 13 €/dia</td><td>52 € (4 nits)</td></tr>
+<tr><td>Radisson RED (Belgrad)</td><td>❌ 15 €/dia</td><td>30 € (2 nits)</td></tr>
+<tr><td>Esplanade (Zagreb)</td><td>❌ 30 €/dia (exterior)</td><td>30 € (1 nit)</td></tr>
+<tr><td>Innside (Praga)</td><td>❌ 35 €/dia</td><td>105 € (3 nits)</td></tr>
+<tr><td>Krønasår (Europa-Park)</td><td>✅ <b>Inclòs</b> com a servei d'hoste</td><td>0 €</td></tr>
+<tr><td>Holiday Inn Bern</td><td>❌ 19 CHF/nit <b>només donant la matrícula a recepció ABANS de la primera sortida</b> (si no: 40 CHF, irreversible)</td><td>~38 CHF ≈ 40 €</td></tr>
+<tr class="long"><td><b>Total aparcaments a pressupostar</b></td><td></td><td><b>≈ 380-430 €</b></td></tr>
+</table>
+</div>
+
+<!-- PRESSUPOST -->
+<h2 class="sect">Pressupost d'entrades (família de 5)</h2>
+<p class="sect-sub">Xifres aproximades amb preus 2026; l'Aina (14) paga tarifa de nen gairebé a tot arreu llevat de la pletna de Bled. No inclou àpats, peatges ni vinyetes.</p>
+<div class="budget">
+<table>
+<tr><td>Postojna + Predjama (combo, 2 ad + 3 nens)</td><td>≈ 168 €</td></tr>
+<tr><td>Castell Ljubljana + funicular (família)</td><td>≈ 40-50 €</td></tr>
+<tr><td>Pletna Illa de Bled (3 ad* + 2 nens) *Aina 14 = adult</td><td>≈ 80 € <small>(efectiu)</small></td></tr>
+<tr><td>Castell de Bled (2 ad + 3 nens)</td><td>≈ 59 €</td></tr>
+<tr><td>Vintgar Gorge (2 ad + 3 nens) + pàrquing</td><td>≈ 50 €</td></tr>
+<tr><td>Plitvice — tour amb tren i vaixell (Booking 32653490)</td><td>✓ ja pagat</td></tr>
+<tr><td>Krka — opcional (2 ad + 3 reduïdes)</td><td>≈ 110-130 €</td></tr>
+<tr><td>Museu Tesla (família)</td><td>≈ 25-35 €</td></tr>
+<tr><td>Pista Kalemegdan (1h de lloguer, si està ocupada)</td><td>≈ 9 €</td></tr>
+<tr><td>Castell de Praga circuit bàsic (família)</td><td>≈ 45 €</td></tr>
+<tr><td>Torre Petřín + laberint (familiar + ascensors)</td><td>≈ 45 €</td></tr>
+<tr><td>Museu Il·lusions Zagreb (família)</td><td>≈ 48 €</td></tr>
+<tr><td>Rulantica — opcional (2 ad + 3 nens, 1 dia)</td><td>≈ 230 €</td></tr>
+<tr><td>Vinyetes: Eslovènia 16 € + Àustria ~12 € + Txèquia ~9 € + Suïssa ~43 €</td><td>≈ 80 €</td></tr>
+<tr class="total"><td>Total pendent (amb les 2 opcionals)</td><td>≈ 960-1.060 €</td></tr>
+<tr class="total"><td>Total pendent sense opcionals (Krka + Rulantica)</td><td>≈ 650-710 €</td></tr>
+</table>
+</div>
+
+<footer>Guia actualitzada l'11 de juliol de 2026 · Hotels ✓ i Plitvice ✓ pagats · Fotos: Wikimedia Commons · Preus verificats a webs oficials — poden variar lleugerament · Agència: Trending Travel, Xavier 699 303 575 · Marta 699 303 573</footer>
+</div>
+</body>
+</html>
